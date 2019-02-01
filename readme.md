@@ -6,9 +6,9 @@ Substrate node and data sink related config lives in the `.env` file.
 
 ## Why?
 
-Ideally, we should avoid running iterators and loops on the on-chain data stored in the blockchain runtime or contracts. The chain should store the minimum amount of data which is needed for conflict resolution. Everything else can and should be stored off-chain with it's hash on the chain.
+Ideally, we should avoid running iterators and loops on the on-chain data stored in a blockchain runtime or contracts. The chain should store the minimum amount of data which is needed for conflict resolution. Everything else can and should be stored off-chain with it's hash on the chain. In cases where on-chain data is stored in lists or maps and needs to be shown in a list on a UI, an event based approach can be used. 
 
-In cases where on-chain data is stored in lists or maps and needs to be shown in a list on a UI, an event based approach can be used. This listener listens to all Substrate runtime events using the web-socket connection, parses each event based on custom rules and then stores them into one or more data stores. This way, an off-chain storage can be primed using the blockchain events which can be queried and shown from a frontend easily.
+This app listens to all Substrate runtime events using the web-socket connection, parses each event based on custom rules and then stores them into one or more data stores. This way, an off-chain storage can be primed using the blockchain events which can be queried and shown on a frontend easily.
 
 ## Usage
 
@@ -43,3 +43,7 @@ To use a new data store with the listener,
 2. Import the new js client in `dataService.js`
 3. Use init() for initializing the client - connection, priming, etc.
 4. Use insert() for (of course) inserting substrate events data
+
+## Note
+
+This app is not for production usage. It is mainly built to suggest an event based pattern for priming an off-chain storage. Please feel free to extend and use as needed.
