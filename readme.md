@@ -1,4 +1,4 @@
-# Substrate Events Listener + Data Storage Adapter
+# Substrate Events Listener & Storage Adapter
 
 A simple node.js based web-socket listener which subscribes to Parity Substrate runtime events and stores them in a data store. At the moment, MongoDB is supported but new stores can be added easily.
 
@@ -39,7 +39,7 @@ docker run -d substrate-listener
 
 To use a new data store with the listener,
 
-1. Create the js client in the `data_adaptors` dir (similar to mongo client)
+1. Create the storage client in the `adaptors` dir (similar to existing mongo client)
 2. Import the new js client in `dataService.js`
 3. Use init() for initializing the client - connection, priming, etc.
 4. Use insert() for (of course) inserting substrate events data

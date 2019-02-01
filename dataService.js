@@ -5,7 +5,7 @@
 //      3. Use init() for initializing the client - connection, priming, etc.
 //      4. Use insert() for (of course) inserting substrate events data
 
-const mongo = require('./data_adaptors/mongo');
+const mongo = require('./adaptors/mongo');
 
 var init = async function() {
     await mongo.connect();
