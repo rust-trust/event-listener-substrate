@@ -6,7 +6,7 @@ Substrate node and data sink related config lives in the `.env` file.
 
 ## Why?
 
-Ideally, we should avoid running iterators and loops on the on-chain data stored in a blockchain runtime or contracts. The chain should store the minimum amount of data which is needed for conflict resolution. Everything else can and should be stored off-chain with it's hash on the chain. In cases where on-chain data is stored in lists or maps and needs to be shown on a UI, an event based approach can be used to build an off-chain storage which can be queried from the UI.
+Ideally, we should avoid running iterators and loops on the on-chain data stored in a blockchain runtime or smart contract. The chain should store the minimum amount of data which is needed for conflict resolution. Everything else can and should be stored off-chain with it's hash on the chain. In cases where on-chain data is stored in collections (maps) and needs to be shown on a UI, an event based approach can be used to build an off-chain storage which can be queried directly from the UI.
 
 This app listens to all Substrate runtime events using the web-socket connection, parses each event based on (extensible) custom rules and then stores the processed event data in one or more data stores. This off-chain storage can then be used for data analysis, querying, showing it on the UI, etc.
 
@@ -14,11 +14,16 @@ This app listens to all Substrate runtime events using the web-socket connection
 
 1. Clone this repository.
 2. Make sure your Substrate node and MongoDB is running. Update the `.env` file with the server and ports, if needed.
-3. Set event section filters (comma separated list of module names, no spaces) in the `.env` file to filter events,
+3. Set event section filters (comma separated list of module names, no spaces) in the `.env` file to process filtered events. 
+
+For example, to select all events,
 
 ```
 SUBSTRATE_EVENT_SECTIONS=all
 ```
+
+and to select events only from `balances`,`assets`,`token` modules,
+
 ```
 SUBSTRATE_EVENT_SECTIONS=balances,assets,token
 ```
@@ -47,4 +52,4 @@ To use a new data store with the listener,
 
 ## Note
 
-This app is not for production usage. It is mainly built to suggest an event based pattern for priming an off-chain storage. Please feel free to extend and use as needed.
+This app is **not** for production usage. It is mainly built to suggest an event based pattern for priming an off-chain storage. Please feel free to extend and use as needed.
