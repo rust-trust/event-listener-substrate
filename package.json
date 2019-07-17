@@ -7,11 +7,11 @@
     "test": "test"
   },
   "author": "Gautam Dhameja",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
-    "@polkadot/api": "^0.42.2",
-    "dotenv": "^6.2.0",
-    "mongodb": "^3.1.13",
-    "rxjs": "^6.4.0"
+    "@polkadot/api": "^0.82.0-beta.68",
+    "dotenv": "^8.0.0",
+    "mongodb": "^3.2.7",
+    "rxjs": "^6.5.2"
   }
 }

@@ -14,9 +14,12 @@ async function main() {
   // internally connects to all storage sinks
   await dataService.init();
 
-  // Create API with connection to the local Substrate node
-  // If your Substrate node is running elsewhere, add the config (server + port) in .env
-  // Use the config in the create function below
+  // Create API with connection to the local Substrate node.
+  // If your Substrate node is running elsewhere, add the config (server + port) in `.env`.
+  // Use the config in the create function below.
+  // If the Substrate runtime your are connecting to uses custom types, 
+  // please make sure that your have initialized the API object with them.
+  // https://polkadot.js.org/api/api/#registering-custom-types
   ApiRx.create()
     .pipe(
       switchMap((api) =>

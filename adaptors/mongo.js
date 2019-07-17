@@ -22,7 +22,7 @@ const collectionName = process.env.MONGO_COLLECTION;
 var connect = async function(url = connectionUrl) {
     console.log(connectionUrl);
     return new Promise((resolve, reject) => {
-        client.connect(url, function (err, resp) {
+        client.connect(url, { useNewUrlParser: true },function (err, resp) {
             if (!err) {
                 console.log("Connected to MongoDB server", url)
                 state.conn = resp
