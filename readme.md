@@ -81,6 +81,4 @@ To get a better idea of sync status between the on-chain and off-chain stores, t
 
 The off-chain storage approach presented here should not be used as-is in a production application. Solutions for corrective measures (for bringing the stores in sync) should be defined in the context of the use-case, before implementing this approach.
 
-## Disclaimer
 
-This app is **not** for production usage. It is mainly built to suggest an event based pattern for priming an off-chain storage. Please feel free to extend and use as needed.
